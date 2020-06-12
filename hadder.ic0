@@ -1,0 +1,75 @@
+* "simulator" "HSPICE" 
+* "version" "O-2018.09-SP2 linux64"
+* "format" "HSP"
+* "rundate" "18:30:27 06/11/2020 "
+* "netlist" "hadder "
+* "runtitle" "*******45nm th22 gate**********************************************"
+* time =    0.            
+* temperature =   25.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ a =   0.            
++ b =   0.            
++ c =   0.            
++ c0 =  94.9160n       
++ c02 = 442.8534n       
++ c1 =  94.9160n       
++ d =   0.            
++ mnode =   1.2000        
++ mnode1 = 198.1561n       
++ mnode2 =   1.2000        
++ nnode0 =  44.2853m       
++ nnode1 =  44.2853m       
++ nnode2 =  27.2185m       
++ nnode20 =  44.2853m       
++ nnode21 =  44.2853m       
++ nnode22 =  23.1145m       
++ pnode0 =   1.2000        
++ pnode1 =   1.2000        
++ pnode2 =   1.2000        
++ pnode20 =   1.2000        
++ pnode21 =   1.2000        
++ pnode22 =   1.2000        
++ pnode23 =   1.2000        
++ pnode24 =   1.2000        
++ pnode3 =   1.2000        
++ s0 = 168.0129n       
++ s1 =  94.9160n       
++ s11 = 168.0129n       
++ s12 = 168.0128n       
++ vdd =   1.2000        
++ vgn = 800.0000m       
++ vgp = 420.0000m       
++ xm1.mnode =   1.2000        
++ xm1.nnode0 =  44.2853m       
++ xm1.nnode1 =  37.8841m       
++ xm1.pnode0 =   1.2000        
++ xm1.pnode1 =   1.2000        
++ xm1.vdd =   1.2000        
++ xm2.mnode =   1.2000        
++ xm2.nnode0 =  44.2853m       
++ xm2.nnode1 =  37.8841m       
++ xm2.pnode0 =   1.2000        
++ xm2.pnode1 =   1.2000        
++ xm2.vdd =   1.2000        
++ xm3.mnode =   1.2000        
++ xm3.nnode0 =  44.2853m       
++ xm3.nnode1 =  37.8840m       
++ xm3.pnode0 =   1.2000        
++ xm3.pnode1 =   1.2000        
++ xm3.vdd =   1.2000        
++ xm4.mnode20 =   1.2000        
++ xm4.nnode20 =  33.4156m       
++ xm4.pnode20 =   1.2000        
++ xm4.pnode21 =   1.2000        
++ xm4.pnode22 =   1.2000        
++ xm4.vdd =   1.2000        
++ xm5.mnode20 =   1.2000        
++ xm5.nnode20 =  33.4156m       
++ xm5.pnode20 =   1.2000        
++ xm5.pnode21 =   1.2000        
++ xm5.pnode22 =   1.2000        
++ xm5.vdd =   1.2000        
+***   END: Saved Operating Point ***                     

@@ -1,0 +1,8 @@
+$DATA1 SOURCE='HSPICE' VERSION='O-2018.09-SP2 linux64' PARAM_COUNT=0
+.TITLE '*******45nm th22 gate**********************************************'
+ dynamic_power    xm1.dynamic_power xm1.trise        xm1.tfall       
+ xm2.dynamic_power xm2.trise        xm2.tfall        xm3.dynamic_power
+ xm3.trise        xm3.tfall        temper           alter#          
+  6.453e-06        2.855e-10          failed           failed       
+  2.855e-10          failed           failed         2.855e-10      
+    failed           failed          25.0000        1               

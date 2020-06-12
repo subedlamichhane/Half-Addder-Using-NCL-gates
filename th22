@@ -1,0 +1,103 @@
+********45nm TH22 Gate**********************************************
+.SUBCKT th22 A B Z
+*.OPTIONS POST
+*.TRAN 1p 3.0N
+
+*********POWER MEASUREMENT******************************************
+.MEASURE TRAN dynamic_power AVG POWER FROM=1p TO=600p
+********************************************************************
+
+
+*********RISE TIME CALCULATION**************************************
+*.MEAS TRAN vmax MAX V(or2) FROM=1p TO=1n
+*.MEAS TRAN vmin MIN V(or2) FROM=1p TO=1n
+.MEAS TRAN Trise TRIG V(or2) val=’0+0.1*1’
++ TD=1p RISE=1 TARG V(or2) val=’0.9’ RISE=1
+.MEAS TRAN Tfall TRIG V(or2) val=’0.9’ TD=1p
++ FALL=2 TARG V(or2) val=’0+0.1*1’ FALL=2
+*********************************************************************
+
+
+VDD VDD 0 1.2
+
+*VX1 VGN 0 1.2V
+*VX2 VGP 0 0V
+
+*VA A 0 PULSE(0 1.0 30p 10p 10p 400p 1200p)
+*VB B 0 PULSE(0 1.0 30p 10p 10p 300p 1800p)
+
+
+MP0 Pnode0 A VDD VDD pmos L=45n W=90n
+MP1 Mnode B Pnode0 VDD pmos L=45n W=90n 
+MP2 Pnode1 A VDD VDD pmos L=45n W=90n
+MP3 Pnode1 B VDD VDD pmos L=45n W=90n
+MP4 Mnode Z Pnode1 VDD pmos L=45n W=90n
+
+
+MN0 Mnode B Nnode0 0 nmos L=45n W=45n 
+MN1 Nnode0 A 0 0 nmos L=45n W=45n
+MN2 Mnode Z Nnode1 0 nmos L=45n W=90n 
+MN3 Nnode1 A 0 0 nmos L=45n W=90n
+MN4 Nnode1 B 0 0 nmos L=45n W=90n
+
+
+MP81 Z Mnode  VDD VDD pmos L=45N W=90N
+MN81 Z Mnode  0 0 nmos L=45N W=45N
+
+
+
+
+********PARTICLE HIT***************************************************
+*I1 0 Mnode PULSE(0 900u 300p 3p 26p 12p 1n) *Current Pulse For PMOS hit
+*I2 Mnode 0 PULSE(0 900u 700p 3p 33p 22p 1n) *Current Pulse for NMOS hit
+************************************************************************
+
+*TG**************************************************************
+*M45 Z VGP Mnode1 VDD pmos L=45N W=90N
+*M46 Z VGN Mnode1 0 nmos L=45N W=45N
+
+
+
+************* schmitt**********************************
+*MP10 PnodeS1 Mnode VDD VDD pmos L=45n W=90n
+*MP11 Z Mnode PnodeS1 VDD pmos L=45n W=90n
+*MP12 PnodeS2 Z 0 VDD pmos L=45n W=90n
+
+
+*MN10 Z Mnode 0 0 nmos L=45n W=765n
+*MN11 NnodeS1 Mnode 0 0 nmos L=45n W=45n
+*MN12 NnodeS1 Z 0 0 nmos L=45n W=2835n
+
+************RTH**********************************
+*MP10 PnodeR1 AC VDD VDD pmos L=45n W=90n
+*MP11 PnodeR2 BC PnodeR1 VDD pmos L=45n W=90n
+
+
+*MP13 PnodeR3 CC VDD VDD pmos L=45n W=90n
+*MP14 PnodeR2 DC PnodeR3 VDD pmos L=45n W=90n
+
+
+*MP15 PnodeR2 ZC VDD VDD pmos L=45n W=90n
+*MP16 PnodeR2 Z 0 VDD pmos L=45n W=90n
+
+*MP17 Z Mnode PnodeR2 VDD pmos L=45n W=90n
+
+*MN10 Z Mnode NnodeR1 0 nmos L=45n W=45n
+
+*MN11 NnodeR1 Z VDD 0 nmos L=45n W=45n
+*MN12 NnodeR1 ZC 0 0 nmos L=45n W=45n
+
+*MN13 NnodeR1 AC NnodeR2 0 nmos L=45n W=45n
+*MN14 NnodeR2 BC NnodeR3 0 nmos L=45n W=45n
+*MN15 NnodeR3 CC NnodeR4 0 nmos L=45n W=45n
+*MN16 NnodeR4 DC 0 0 nmos L=45n W=45n
+
+*MP9 ZC Z  VDD VDD pmos L=45N W=90N
+*MN9 ZC Z  0 0 nmos L=45N W=45N
+
+
+.ENDS
+
+
+
+
